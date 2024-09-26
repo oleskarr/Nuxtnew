@@ -16,8 +16,7 @@
         gap: 10px;
         display: flex;
         
-        flex-wrap: wrap;
-        justify-content: space-between;
+       
     }
     article{
         height: max-content;
