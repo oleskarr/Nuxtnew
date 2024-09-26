@@ -3,15 +3,11 @@
     <h2>Home</h2>
    </header>
    <main>
-    <article v-for="post in posts" :key="post.id">
-        {{ post.title }}
-        <img src="" alt="">
-        <ul>
-        <li v-for="tag in post.tags" :key="tag.id">
-                {{ tag }}
-        </li>
-        </ul>
-        <NuxtLink to="/post/${index}">interesting</NuxtLink>
+    <article v-for="post in posts" :key="post.id" >
+       <h3> {{ post.title }} </h3> 
+       <img  :src=base_url+post.image.url >
+       <p>{{ post.description }}</p>
+       <NuxtLink to="#">More</NuxtLink>
     </article>
    </main>
 </template>
@@ -24,33 +20,25 @@
         justify-content: space-between;
     }
     article{
-       
         height: max-content;
         padding: 10px;
-       
         border-radius: 10px;
-        background-color: #121910;
-        color: bisque;
+        background-color:#ebc7df;
+        color:#004524;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
     }
-    ul{
-       width: max-content;
-       color:white;
-      
-      align-self: self-start;
-        display: flex;
-        flex-direction: column;
-      
+    img{
+        width: 500px;
+        
     }
+  
+    
   
 </style>
 <script setup>
-    const dataTwice = await $fetch('https://dummyjson.com/posts')
-    const posts = dataTwice.posts
-    console.log(posts);
+    const api = await $fetch('http://localhost:1337/api/posts?populate=*')
+    const posts = api.data
+    const base_url = "http://localhost:1337"
     
 </script>
