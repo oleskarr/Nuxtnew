@@ -3,11 +3,11 @@
     <h2>Home</h2>
    </header>
    <main>
-    <article v-for="post in posts" :key="post.id" >
+    <article v-for="(post, index) in posts" :key="post.id" >
        <h3> {{ post.title }} </h3> 
        <img  :src=base_url+post.image.url >
        <p>{{ post.description }}</p>
-       <NuxtLink to="#">More</NuxtLink>
+       <NuxtLink :to="'/post/' + index ">More</NuxtLink>
     </article>
    </main>
 </template>
@@ -19,13 +19,19 @@
        
     }
     article{
-        height: max-content;
+        width: 400px;
+        height: 500px;
         padding: 10px;
         border-radius: 10px;
         background-color:#ebc7df;
         color:#004524;
         display: flex;
         flex-direction: column;
+            img{
+                height: 300px;
+                width: 300px;
+                object-fit: cover;
+            }
     }
     img{
         width: 500px;
