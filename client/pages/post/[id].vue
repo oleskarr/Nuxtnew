@@ -6,6 +6,10 @@
             </li>
             >>
             <li>
+                <NuxtLink to="/category/" + post.categoryies[0].id>{{ post.categories[0].title }}</NuxtLink>
+            </li>
+            >> 
+            <li>
                 <strong>{{ post.title }}</strong>
             </li>
         </ul>

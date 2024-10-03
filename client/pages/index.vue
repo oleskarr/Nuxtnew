@@ -13,21 +13,26 @@
    </main>
 </template>
 <style scooped>
+*{ margin: 0;
+padding: 0;
+}
     main{
-        gap: 10px;
+        gap: 20px;
         display: flex;
         
        
     }
     article{
         width: 400px;
-        height: 500px;
+        height: 450px;
         padding: 10px;
         border-radius: 10px;
-        background-color:#ebc7df;
-        color:#004524;
+        background-color:#ebebeb;
+        color:#18171c;
         display: flex;
+        align-items: center;
         flex-direction: column;
+        gap: 15px;
             img{
                 height: 300px;
                 width: 300px;
