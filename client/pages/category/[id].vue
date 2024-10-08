@@ -1,15 +1,15 @@
 <template>
-    <h2>Блог</h2>
+  <h2>Блог</h2>
 
-    <main>
-    <div class="posts">
-        <article v-for="(post, index) in posts" :key="post.id">
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.desc }}</p>
-        <NuxtLink :to="'/post/' + index">Подробнее</NuxtLink>
-      </article>
-    </div>
-    </main>
+  <main>
+  <div class="posts">
+      <article v-for="(post, index) in posts" :key="post.id">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.description }}</p>
+      <NuxtLink :to="'/post/' + index">Подробнее</NuxtLink>
+    </article>
+  </div>
+  </main>
 </template>
 
 <script setup>

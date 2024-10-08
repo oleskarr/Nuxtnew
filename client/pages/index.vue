@@ -1,17 +1,22 @@
 <template>
-   
    <header>
     <h2>Home</h2>
    </header>
    <main>
-    <article v-for="(post, index) in posts" :key="post.id" >
-       <h3> {{ post.title }} </h3> 
-       <img  :src=base_url+post.image.url >
-       <p>{{ post.description }}</p>
-       <NuxtLink :to="'/post/' + index ">More</NuxtLink>
-    </article>
-   </main>
+      <div class="posts">
+        <article v-for="(post, index) in posts" :key="post.id">
+          <h3>{{ post.title }}</h3>
+          <img :src="base_url + post.image.url" :alt=post.image.alternativeText>
+          <p>{{ post.description }}</p>
+          <NuxtLink :to="'/post/' + index">Подробнее</NuxtLink>
+        </article>
+      </div>
+    </main>
 </template>
+
+    
+  
+  
 <style scooped>
 *{ margin: 0;
 padding: 0;
@@ -48,8 +53,8 @@ padding: 0;
   
 </style>
 <script setup>
-    const api = await $fetch('http://localhost:1337/api/posts?populate=*')
-    const posts = api.data
-    const base_url = "http://localhost:1337"
-    
+const api = await $fetch('http://localhost:1337/api/posts?populate=*')
+const posts = api.data
+
+const base_url = "http://localhost:1337"
 </script>
