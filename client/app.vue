@@ -18,3 +18,10 @@
     ],
   })
 </script>
+<style>
+body {
+  background-color: #121212; /* Темный фон для контраста */
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+}</style>
