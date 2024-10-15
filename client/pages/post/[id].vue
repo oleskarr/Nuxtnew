@@ -3,23 +3,26 @@
     <nav>
         <ul>
             <li><NuxtLink to="/blog">Блог</NuxtLink></li>
-            <li><NuxtLink :to="'/category/' + post.categories[0].documentId">{{ post.categories[0].title }}</NuxtLink></li>
-            <li><NuxtLink :style="'background:'+post.categories[0].bg" :to="'/category/' + post.categories[0].documentId">{{ post.categories[0].title }}</NuxtLink></li>
+            <li class="title"><NuxtLink :style="{background:post.categories[0].bg}" :to="'/category/' + post.categories[0].documentId">{{ post.categories[0].title }}</NuxtLink></li>
             <li><strong>{{ post.title }}</strong></li>
         </ul>
     </nav>
     <!-- тело статьи -->
     <main>
         <h1>{{ post.title }}</h1>
+        <p class="date">Дата публикации: <span>{{ post.publishedAt }}</span></p>
         <img :src=base_url+post.image.url :alt=post.image.alternativeText>
         <div v-html="mark"></div>
     </main>
 </template>
 
 <style scoped>
+
 main{
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    align-items: center;
 }
     li::before {
         content: ">>";
@@ -29,9 +32,6 @@ main{
         display: none;
     }
 
-    img {
-        width: 765px;
-    }
     nav ul{
         list-style: none;
         display: flex;
@@ -40,17 +40,14 @@ main{
     img{
         width: 202px;
         height: 202px;
+        object-fit: cover;
     }
 </style>
 
 <script setup>
 import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
-
-
-
 const { id } = useRoute().params
-
 const api = await $fetch(`http://localhost:1337/api/posts/${id}?populate=*`);
 const post = api.data;
 const mark = markdown.render(post.body);

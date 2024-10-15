@@ -3,12 +3,12 @@
 
   <main>
   <div class="posts">
-      <article v-for="(post, index) in posts" :key="post.id">
-      <h3>{{ post.title }}</h3>
-      <img :src=base_url+post.image.url>
-      <p>{{ post.description }}</p>
-      <NuxtLink :to="'/post/' + index">Подробнее</NuxtLink>
-    </article>
+    <article v-for="(post, index) in posts" :key="post.id">
+        <h3>{{ post.title }}</h3>
+        <img :src="base_url + post.img.url" :alt=post.img.alternativeText>
+        <p>{{ post.desc }}</p>
+        <NuxtLink :to="'/post/' + post.documentId">Подробнее</NuxtLink>
+      </article>
   </div>
   </main>
 </template>
