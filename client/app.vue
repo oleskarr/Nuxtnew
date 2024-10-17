@@ -16,14 +16,12 @@
     link: [
       { rel: 'icon', type: 'image/x-icon', href: base_url+config.favicon.url },
     ],
+    bodyAttrs:{
+      class:'container 2xl'
+    }
   })
 </script>
 <style>
-body {
-  background-color: #121212; /* Темный фон для контраста */
-  font-family: Arial, sans-serif;
-  color: white;
-}
 
 
 </style>

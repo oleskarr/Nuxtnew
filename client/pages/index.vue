@@ -18,13 +18,19 @@
   initial-value: 0deg;
   inherits:false
 }
+body {
+  background-color: #f5ebe0; /* Темный фон для контраста */
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
 h2 {
   margin-bottom: 40px;
   font-size: 36px;
 }
 main{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax( , 1fr));
   grid-auto-rows: minmax(100px, auto);
   grid-template-rows: repeat(4, 1fr);
   gap: 40px;
