@@ -1,14 +1,7 @@
 <template>
-  <div class="relative bg-gradient-to-r from-indigo-50 via-white to-cyan-50 min-h-screen py-12 px-6 lg:px-20">
-    <!-- Декоративные круги на фоне -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute bg-indigo-100 rounded-full w-96 h-96 -top-10 -left-20 opacity-30 blur-3xl"></div>
-      <div class="absolute bg-cyan-100 rounded-full w-80 h-80 -bottom-20 -right-10 opacity-30 blur-2xl"></div>
-    </div>
-    <h2 class="text-5xl font-bold text-gray-800 text-center mb-14 tracking-wide">
-      Добро пожаловать в наш блог
-    </h2>
-    <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 z-10 relative">
+  <main class=" flex bg-rose-300 min-h-screen">
+   <div class="vh-100  w-[25%] mt-0 ml-0 p-2  bg-rose-200 gap-10 z-10 relative">
+     <div class=" w-max cont overflow-y-auto h-screen absolute">
       <article 
         v-for="(post, index) in posts" 
         :key="post.id" 
@@ -32,8 +25,13 @@
           </NuxtLink>
         </div>
       </article>
-    </main>
-  </div>
+     </div>
+    </div>
+  
+    <h2 class="text-5xl font-bold text-gray-800 text-center mb-14 tracking-wide">
+      Добро пожаловать в наш блог
+    </h2>
+</main>
 </template>
 
 
@@ -52,52 +50,61 @@
   
   </template> -->
     
-  <style scoped> 
-  article { 
-    box-sizing: border-box; 
-    background-color: rgb(0, 0, 0); 
-    padding: 1em; 
-    margin: 20px; 
-    text-align: center; 
-    border-radius: 10px; 
-    position: relative; 
-  } 
- 
-  article::after,
-  article::before { 
-    content: ''; 
-    position: absolute; 
-    height: 100%; 
-    width: 100%; 
-    background-image: conic-gradient( from 0deg, transparent 20%, #cdb4db, #ffc8dd,#ffafcc,#bde0fe,#a2d2ff); 
-    top: 50%; 
-    left: 50%; 
-    translate: -50% -50%; 
-    z-index: -2; 
-    padding: 3px; 
-    border-radius: 10px; 
-    animation: 3s spin linear infinite; 
-  } 
-  article::before{ 
-    filter: blur(1.5rem); 
-    opacity:0.5; 
-  } 
-  @keyframes spin{ 
-    0%{
-     background-image:conic-gradient( from 0deg, transparent 20%, #cdb4db, #ffc8dd,#ffafcc,#bde0fe,#a2d2ff); 
-    }
-    100% {
-     background-image:conic-gradient( from 360deg, transparent 20%, #cdb4db, #ffc8dd,#ffafcc,#bde0fe,#a2d2ff); 
-    }
-  } 
-  article img { 
-    border-radius: 10px; 
-    width: 200px; 
-    height: 200px; 
-    object-fit: cover; 
-  }  
-</style>
+ <style scoped>
+ .overflow-y-auto::-webkit-scrollbar {
+       display: none; 
+     }
+  @property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits:false
+}
 
+article {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  z-index: 20000;
+  padding: 1em;
+  margin: 20px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+
+article::after, article::before {
+content: '';
+position: absolute;
+ height: 100%;
+ width: 100%;
+ background-image:conic-gradient( from var(--angle), transparent 20%, #cdb4db, #ffc8dd,#ffafcc,#bde0fe,#a2d2ff);
+ top: 50%;
+ left: 50%;
+ translate: -50% -50%;
+ z-index: -1;
+ padding: 3px;
+ border-radius: 10px;
+ animation: 3s spin linear infinite;
+}
+article::before{
+  filter: blur(1.5rem);
+  opacity:0.5;
+}
+@keyframes spin{
+  from{
+    --angle:0deg
+  }
+  to{
+    --angle: 360deg
+  }
+}
+article img {
+  border-radius: 10px;
+
+  object-fit: cover;
+
+} 
+</style>
   
 <script setup>
 const api = await $fetch('http://localhost:1337/api/posts?populate=*')

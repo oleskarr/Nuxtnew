@@ -1,6 +1,7 @@
 <template>
-  <Navbar />
+  
   <NuxtPage />
+  
 </template>
 <script setup>
   const base_url = 'http://localhost:1337' 
@@ -17,7 +18,7 @@
       { rel: 'icon', type: 'image/x-icon', href: base_url+config.favicon.url },
     ],
     bodyAttrs:{
-      class:'container 2xl'
+      class:'w-full h-screen fixed inset-0 p-0'
     }
   })
 </script>

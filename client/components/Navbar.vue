@@ -1,6 +1,6 @@
 <template>
     <!-- шапка -->
-    <nav class="bg-amber-200 border-gray-200 dark:bg-gray-900">
+    <nav class=" border-gray-200 dark:bg-gray-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="http://localhost:1337/uploads/free_icon_newspaper_4363471_6706868d75.png" class="h-8" alt="Flowbite Logo" />
@@ -57,5 +57,8 @@
 <style scoped>
 
 </style>
+<script setup>
+ 
+</script>
 
 
