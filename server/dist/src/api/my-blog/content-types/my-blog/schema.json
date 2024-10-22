@@ -1,0 +1,39 @@
+{
+    "kind": "singleType",
+    "collectionName": "my_blogs",
+    "info": {
+        "singularName": "my-blog",
+        "pluralName": "my-blogs",
+        "displayName": "Config",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "string",
+            "required": true
+        },
+        "keyword": {
+            "type": "text",
+            "required": true
+        },
+        "favicon": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false
+        },
+        "canonical": {
+            "type": "string",
+            "required": true
+        }
+    }
+}

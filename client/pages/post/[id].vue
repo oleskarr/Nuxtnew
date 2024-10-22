@@ -4,6 +4,7 @@
         <ul>
             <li><NuxtLink to="/blog">Блог</NuxtLink></li>
             <li class="title"><NuxtLink :style="{background:post.categories[0].bg}" :to="'/category/' + post.categories[0].documentId">{{ post.categories[0].title }}</NuxtLink></li>
+
             <li><strong>{{ post.title }}</strong></li>
         </ul>
     </nav>
