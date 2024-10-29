@@ -1,4 +1,5 @@
 <template>
+  
   <main class="flex bg-rose-300 min-h-screen">
     <!-- Первая колонка (содержит статьи) -->
     <div v-if="!showAllPosts" class="vh-100 w-[25%] mt-0 ml-0 p-2 bg-rose-200 gap-10 z-10 relative">
@@ -33,9 +34,13 @@
 
     <!-- Вторая колонка (hellopage) -->
     <div v-if="!showAllPosts" class="hellopage w-[75%] flex flex-col justify-center items-center bg-white">
+    <div class=" absolute top-0 w-full">
+      <Head/>
+    </div>
       <h2 class="text-5xl font-bold text-gray-800 text-center mb-14 tracking-wide">
         Добро пожаловать в наш блог
       </h2>
+      <h5>Search for your subject</h5>
       <Navbar />
     </div>
 
@@ -80,7 +85,7 @@
 </template>
 
 <script setup>
-// Запрашиваем данные с API
+import Head from '~/components/Head.vue'
 const api = await $fetch('http://localhost:1337/api/posts?populate=*');
 const posts = api.data;
 
