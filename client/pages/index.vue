@@ -33,11 +33,12 @@
               {{ post.description }}
             </p>
             <!-- Кнопка "Подробнее" всегда видна -->
-            <NuxtLink 
-              :to="'/post/' + post.id" 
-              class="inline-block px-4 py-2 text-white bg-indigo-600 rounded-full font-medium transition-colors hover:bg-indigo-500">
-              Подробнее →
-            </NuxtLink>
+            <NuxtLink :to="'/post/' + post.documentId" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Подробнее
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </NuxtLink>
           </div>
         </article>
       </div>
@@ -80,9 +81,9 @@
 import { ref, computed } from 'vue'
 
 // Данные для постов
-const api = await $fetch('http://localhost:1337/api/posts?populate=*');
-const posts = api.data;
-const base_url = "http://localhost:1337";  // Базовый URL для картинок
+const base_url = "http://localhost:1337"
+const api = await $fetch('http://localhost:1337/api/posts?populate=*')
+const posts = api.data
 
 // Управление шириной панели
 const panelWidth = ref(30);
@@ -179,6 +180,23 @@ NuxtLink {
   text-align: center;
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
