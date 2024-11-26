@@ -4,7 +4,7 @@
   
 </template>
 <script setup>
-  const base_url = 'http://localhost:1337' 
+  const base_url = 'http://panel.e66d004109c.vps.myjino.ru' 
   const api = await $fetch(`${base_url}/api/my-blog?populate=*`)
   const config = api.data
 

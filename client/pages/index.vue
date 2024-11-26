@@ -81,8 +81,8 @@
 import { ref, computed } from 'vue'
 
 // Данные для постов
-const base_url = "http://localhost:1337"
-const api = await $fetch('http://localhost:1337/api/posts?populate=*')
+const base_url = "http://panel.e66d004109c.vps.myjino.ru"
+const api = await $fetch('http://panel.e66d004109c.vps.myjino.ru/api/posts?populate=*')
 const posts = api.data
 
 // Управление шириной панели
@@ -283,11 +283,11 @@ NuxtLink {
 
 <script setup>
 import Head from '~/components/Head.vue'
-const api = await $fetch('http://localhost:1337/api/posts?populate=*');
+const api = await $fetch('http://panel.e66d004109c.vps.myjino.ru/api/posts?populate=*');
 const posts = api.data;
 
 // Видимый URL для картинок
-const base_url = "http://localhost:1337";
+const base_url = "http://panel.e66d004109c.vps.myjino.ru";
 
 // Состояние для управления видимостью постов
 import { ref, computed } from 'vue';

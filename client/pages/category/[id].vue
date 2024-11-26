@@ -16,11 +16,11 @@
 <script setup>
 const { id } = useRoute().params
 
-const api = await $fetch(`http://localhost:1337/api/categories/${id}?populate=posts.image`)
+const api = await $fetch(`http://panel.e66d004109c.vps.myjino.ru/api/categories/${id}?populate=posts.image`)
 //const filteredPosts = api.data.filter(post => post.id == id)
 const posts = api.data.posts
 
-const base_url = 'http://localhost:1337'
+const base_url = 'http://panel.e66d004109c.vps.myjino.ru'
 </script>
 
 
