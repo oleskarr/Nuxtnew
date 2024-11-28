@@ -283,11 +283,11 @@ NuxtLink {
 
 <script setup>
 import Head from '~/components/Head.vue'
-const api = await $fetch('http://panel.e66d004109c.vps.myjino.ru/api/posts?populate=*');
+const api = await $fetch('https://d19d642231aa.vps.myjino.ru/api/posts?populate=*');
 const posts = api.data;
 
 // Видимый URL для картинок
-const base_url = "http://panel.e66d004109c.vps.myjino.ru";
+const base_url = "https://d19d642231aa.vps.myjino.ru";
 
 // Состояние для управления видимостью постов
 import { ref, computed } from 'vue';
