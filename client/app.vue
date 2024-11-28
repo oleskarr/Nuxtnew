@@ -4,8 +4,9 @@
   
 </template>
 <script setup>
-  const base_url = 'http://panel.e66d004109c.vps.myjino.ru' 
-  const api = await $fetch(`${base_url}/api/my-blog?populate=*`)
+  const base_url = 'http://d19d642231aa.vps.myjino.ru' 
+  const api = await $fetch(`https://d19d642231aa.vps.myjino.ru
+/api/my-blog?populate=*`)
   const config = api.data
 
   useHead({

@@ -57,15 +57,15 @@ import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
 
 const { id } = useRoute().params
-const base_url = 'http://panel.e66d004109c.vps.myjino.ru'
-const api = await $fetch(`http://panel.e66d004109c.vps.myjino.ru/api/posts/${id}?populate=*`);
+const base_url = 'http:/d19d642231aa.vps.myjino.ru'
+const api = await $fetch(`https:/d19d642231aa.vps.myjino.ru/api/posts/${id}?populate=*`);
 const post = api.data;
 const mark = markdown.render(post.body);
 
 const viewsCount = ref(post.views)
 
 async function views() {
-  const response = await $fetch(`http://panel.e66d004109c.vps.myjino.ru/api/posts/${id}`, {
+  const response = await $fetch(`https:/d19d642231aa.vps.myjino.ru/api/posts/${id}`, {
       method: "PUT",
       body: {
           data: {
@@ -79,7 +79,7 @@ onMounted(views())
 
 
 
-const apiConfig = await $fetch(`${base_url}/api/config?populate=*`)
+const apiConfig = await $fetch(`https:/d19d642231aa.vps.myjino.ru/api/posts/${id}?populate=*`)
 const config = apiConfig.data
 useHead({
   title: `${post.title} - ${config.title}`
@@ -169,11 +169,11 @@ main{
 import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
 const { id } = useRoute().params
-const api = await $fetch(`http://panel.e66d004109c.vps.myjino.ru/api/posts/${id}?populate=*`);
+const api = await $fetch(`http:/d19d642231aa.vps.myjino.ru/api/posts/${id}?populate=*`);
 const post = api.data;
 const mark = markdown.render(post.body);
 
-const base_url = 'http://panel.e66d004109c.vps.myjino.ru'
+const base_url = 'http:/d19d642231aa.vps.myjino.ru'
 
 const apiConfig = await $fetch(`${base_url}/api/my-blog?populate=*`)
 const config = apiConfig.data

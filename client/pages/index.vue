@@ -81,8 +81,8 @@
 import { ref, computed } from 'vue'
 
 // Данные для постов
-const base_url = "http://panel.e66d004109c.vps.myjino.ru"
-const api = await $fetch('http://panel.e66d004109c.vps.myjino.ru/api/posts?populate=*')
+const base_url = "http://d19d642231aa.vps.myjino.ru"
+const api = await $fetch('https://d19d642231aa.vps.myjino.ru/api/posts?populate=*')
 const posts = api.data
 
 // Управление шириной панели
