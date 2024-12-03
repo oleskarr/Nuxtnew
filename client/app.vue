@@ -1,9 +1,10 @@
 <template>
+  <h1>rtyjhhu</h1>
  
-  <NuxtPage />
+  <!-- <NuxtPage /> -->
   
 </template>
-<script setup>
+<!-- <script setup>
   const base_url = 'https://d19d642231aa.vps.myjino.ru' 
   const api = await $fetch(`https://d19d642231aa.vps.myjino.ru
 /api/my-blog?populate=*`)
@@ -22,7 +23,7 @@
       class:'w-full h-screen fixed inset-0 p-0'
     }
   })
-</script>
+</script> -->
 <style>
 
 
