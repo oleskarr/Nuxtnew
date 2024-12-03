@@ -15,7 +15,7 @@
           class="group bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl hover:rotate-1 mb-6"
           :style="randomPostStyle()"
         >
-          <img 
+          <!-- <img 
             :src="base_url + post.image.url" 
             :alt="post.image.alternativeText"
             class="transition-transform duration-500 group-hover:scale-110"
@@ -24,7 +24,7 @@
               height: 'auto',
               objectFit: 'cover'
             }"
-          />
+          /> -->
           <div class="p-4 flex flex-col justify-between" style="height: 100%;">
             <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors">
               {{ post.title }}
