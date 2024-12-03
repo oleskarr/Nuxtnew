@@ -50,65 +50,91 @@
 </template>
 
 <script setup>
-import MarkdownIt from "markdown-it";
-const markdown = new MarkdownIt();
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import MarkdownIt from 'markdown-it'
+import { useHead } from '@vueuse/head'  // Для обновления мета-тега
+
+// Инициализация markdown-рендера
+const markdown = new MarkdownIt()
 
 // Получаем id из параметров маршрута
-const { id } = useRoute().params;
-const base_url = 'https://d19d642231aa.vps.myjino.ru';
+const { id } = useRoute().params
+const base_url = 'https://d19d642231aa.vps.myjino.ru'
 
-// Получаем данные поста по id
-const api = await $fetch(`https://d19d642231aa.vps.myjino.ru/api/posts/${id}?populate=*`);
-const post = api.data;
-const mark = markdown.render(post.body);
+// Делаем пост и контент реактивными
+const post = ref(null)
+const mark = ref('')
+const viewsCount = ref(0)
 
-// Обновляем количество просмотров
-const viewsCount = ref(post.views);
-
-async function views() {
-  const response = await $fetch(`https://d19d642231aa.vps.myjino.ru/api/posts/${id}`, {
-    method: "PUT",
-    body: {
-      data: {
-        views: viewsCount.value + 1 // Увеличиваем количество просмотров
-      }
-    }
-  });
+// Функция для получения данных поста
+const fetchPost = async () => {
+  try {
+    const api = await $fetch(`https://d19d642231aa.vps.myjino.ru/api/posts/${id}?populate=*`)
+    post.value = api.data
+    mark.value = markdown.render(post.value.body)
+    viewsCount.value = post.value.views
+    updateMeta()
+  } catch (error) {
+    console.error('Ошибка при получении данных поста:', error)
+  }
 }
 
-onMounted(views);
+// Функция для обновления количества просмотров
+const updateViews = async () => {
+  try {
+    await $fetch(`https://d19d642231aa.vps.myjino.ru/api/posts/${id}`, {
+      method: 'PUT',
+      body: {
+        data: {
+          views: viewsCount.value + 1
+        }
+      }
+    })
+    viewsCount.value += 1  // Обновляем локальное значение
+  } catch (error) {
+    console.error('Ошибка при обновлении количества просмотров:', error)
+  }
+}
 
-// Обновление мета-тега для страницы
-const apiConfig = await $fetch(`https://d19d642231aa.vps.myjino.ru/api/posts/${id}?populate=*`);
-const config = apiConfig.data;
-useHead({
-  title: `${post.title} - ${config.title}`
-});
+// Обновление мета-тега
+const updateMeta = () => {
+  useHead({
+    title: `${post.value.title} - ${post.value.category?.name || ''}`
+  })
+}
+
+onMounted(() => {
+  fetchPost()  // Загружаем пост при монтировании
+  updateViews()  // Обновляем количество просмотров
+})
 
 // Функция для форматирования даты
 function formatDate(dateString) {
   if (dateString) {
-    const date = new Date(Date.parse(dateString));
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
+    const date = new Date(Date.parse(dateString))
+    const day = date.getDate()
+    const month = date.getMonth() + 1
     const monthNames = [
       'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
       'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
-    ];
-    return `${day} ${monthNames[month - 1]}`; // Используем `return` здесь
+    ]
+    return `${day} ${monthNames[month - 1]}`  // Используем `return` здесь
   } else {
-    return '';
+    return ''
   }
 }
 
+// Функция для обрезки текста с добавлением многоточия
 function ellipsis(text, maxLength) {
   if (text.length > maxLength) {
-    return text.replace(new RegExp(`^(.{${maxLength}}).*`), '$1...');
+    return text.replace(new RegExp(`^(.{${maxLength}}).*`), '$1...')
   } else {
-    return text;
+    return text
   }
 }
 </script>
+
 
 
   
