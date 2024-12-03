@@ -78,33 +78,33 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+// import { ref, computed } from 'vue'
 
-// Данные для постов
-const base_url = "https://d19d642231aa.vps.myjino.ru"
-const api = await $fetch('https://d19d642231aa.vps.myjino.ru/api/posts?populate=*')
-const posts = api.data
+// // Данные для постов
+// const base_url = "https://d19d642231aa.vps.myjino.ru"
+// const api = await $fetch('https://d19d642231aa.vps.myjino.ru/api/posts?populate=*')
+// const posts = api.data
 
-// Управление шириной панели
-const panelWidth = ref(30);
+// // Управление шириной панели
+// const panelWidth = ref(30);
 
-// Функция для переключения ширины панели
-const togglePanelWidth = () => {
-  panelWidth.value = panelWidth.value === 30 ? 80 : 30
-}
+// // Функция для переключения ширины панели
+// const togglePanelWidth = () => {
+//   panelWidth.value = panelWidth.value === 30 ? 80 : 30
+// }
 
-// Показывать только первые 3 поста
-const visiblePosts = computed(() => posts.slice(0, 3));
+// // Показывать только первые 3 поста
+// const visiblePosts = computed(() => posts.slice(0, 3));
 
-// Функция для случайных размеров постов
-function randomPostStyle() {
-  const randomHeight = Math.floor(Math.random() * (350 - 250 + 1)) + 250; // высота от 250px до 350px
-  const randomWidth = Math.floor(Math.random() * (300 - 250 + 1)) + 250; // ширина от 250px до 300px
-  return {
-    height: `${randomHeight}px`,  // Используем кастомные CSS-переменные
-    width: `${randomWidth}px`,
-  };
-}
+// // Функция для случайных размеров постов
+// function randomPostStyle() {
+//   const randomHeight = Math.floor(Math.random() * (350 - 250 + 1)) + 250; // высота от 250px до 350px
+//   const randomWidth = Math.floor(Math.random() * (300 - 250 + 1)) + 250; // ширина от 250px до 300px
+//   return {
+//     height: `${randomHeight}px`,  // Используем кастомные CSS-переменные
+//     width: `${randomWidth}px`,
+//   };
+// }
 </script>
 
 <style scoped>
