@@ -1,9 +1,8 @@
 
-<template>
-  <!-- тело статьи -->
-  <!-- <main class="max-w-screen-xl min-w-96 md:min-w-[48rem] lg:min-w-[56rem] mx-auto py-2"> -->
+<!-- <template>
+ 
   <main class="w-full lg:px-40">
-      <!-- хлебные крошки -->
+      
       <nav class="flex" aria-label="Breadcrumb">
           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
               <li class="inline-flex items-center">
@@ -108,7 +107,7 @@ if (text.length > maxLength) {
   return text;
 }
 }
-</script>
+</script> -->
 
   
 <!-- <template>
