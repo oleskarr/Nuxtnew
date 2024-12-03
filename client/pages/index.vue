@@ -99,11 +99,11 @@ article .p-4 {
 }
 
 /* Стили для кнопки "Подробнее" */
-NuxtLink {
+/* .NuxtLink {
   margin-top: 10px; /* Отступ от описания */
   display: inline-block;
   text-align: center;
-}
+} */
 </style>
 
 
