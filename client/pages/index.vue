@@ -66,7 +66,7 @@
     <!-- Правая панель -->
     <div class="flex-1 p-6 text-center">
       <div class="absolute top-0 w-full">
-        <Head/>
+        <Head />
       </div>
       <h2 class="text-3xl lg:text-5xl font-bold text-gray-800 mb-6 lg:mb-14 tracking-wide">
         Добро пожаловать в наш блог
