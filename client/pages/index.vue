@@ -63,17 +63,7 @@
       </svg>
     </button>
 
-    <!-- Правая панель -->
-    <div class="flex-1 p-6 text-center">
-      <div class="absolute top-0 w-full">
-        <Head />
-      </div>
-      <h2 class="text-3xl lg:text-5xl font-bold text-gray-800 mb-6 lg:mb-14 tracking-wide">
-        Добро пожаловать в наш блог
-      </h2>
-      <h5 class="text-lg">Search for your subject</h5>
-      <Navbar />
-    </div>
+    
   </div>
 </template>
 
