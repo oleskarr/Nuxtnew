@@ -1,7 +1,7 @@
 <template>
-  <h1>rtyjhhu</h1>
+  <!-- <h1>rtyjhhu</h1> -->
  
-  <!-- <NuxtPage /> -->
+  <NuxtPage />
   
 </template>
 <script setup>
