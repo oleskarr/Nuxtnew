@@ -17,7 +17,7 @@
       { name: 'keywords', content: config.keyword },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: base_url+config.favicon.url },
+      // { rel: 'icon', type: 'image/x-icon', href: base_url+config.favicon.url },
     ],
     bodyAttrs:{
       class:'w-full h-screen fixed inset-0 p-0'
