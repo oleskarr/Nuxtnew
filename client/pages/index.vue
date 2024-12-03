@@ -10,7 +10,7 @@
     >
       <div class="flex flex-wrap justify-start gap-4 p-6">
         <article 
-          v-for="(post, index) in visiblePosts" 
+          v-for="(post, index) in posts" 
           :key="post.id" 
           class="group bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl hover:rotate-1 mb-6"
           :style="randomPostStyle()"
@@ -94,7 +94,7 @@ const togglePanelWidth = () => {
 }
 
 // Показывать только первые 3 поста
-const visiblePosts = computed(() => posts.slice(0, 3));
+
 
 // Функция для случайных размеров постов
 function randomPostStyle() {
