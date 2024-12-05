@@ -68,7 +68,7 @@ const mark = markdown.render(post.body);
 
 
 
-const apiConfig = await $fetch(`${base_url}/api/config?populate=*`)
+const apiConfig = await $fetch(`${base_url}/api/my-blog?populate=*`)
 const config = apiConfig.data
 useHead({
   title: `${post.title} - ${config.title}`
