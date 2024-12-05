@@ -100,7 +100,7 @@ const togglePanelWidth = () => {
 // Функция для случайных размеров постов
 function randomPostStyle() {
   const randomHeight = Math.floor(Math.random() * (350 - 250 + 1)) + 250; // высота от 250px до 350px
-  const randomWidth = Math.floor(Math.random() * (300 - 250 + 1)) + 250; // ширина от 250px до 300px
+  const randomWidth = Math.floor(Math.random() * (350 - 250 + 1)) + 250; // ширина от 250px до 350px
   return {
     height: `${randomHeight}px`,  // Используем кастомные CSS-переменные
     width: `${randomWidth}px`,
