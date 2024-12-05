@@ -62,20 +62,9 @@ const api = await $fetch(`http://d19d642231aa.vps.myjino.ru/api/posts/${id}?popu
 const post = api.data;
 const mark = markdown.render(post.body);
 
-const viewsCount = ref(post.views)
 
-async function views() {
-  const response = await $fetch(`http://panel.615f68b9663f.vps.myjino.ru/api/posts/${id}`, {
-      method: "PUT",
-      body: {
-          data: {
-              views: viewsCount.value + 1 // Увеличиваем количество просмотров
-          }
-      }
-  });
-}
 
-onMounted(views())
+
 
 
 
