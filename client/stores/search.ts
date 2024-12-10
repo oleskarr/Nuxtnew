@@ -1,6 +1,6 @@
 export const useSearchStore = defineStore('search', {
     state: () => ({
-      const searchQuery = ref('')
+      searchQuery: '',
     }),
     actions: {}
 })
