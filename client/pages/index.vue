@@ -69,16 +69,19 @@
       <div class="absolute top-0 w-full">
         <Head/>
       </div>
-      <h2 class="text-3xl lg:text-5xl font-bold text-gray-800 mb-6 lg:mb-14 tracking-wide">
+      <h2 class="text-3xl alighn-center lg:text-5xl font-bold text-gray-800 mb-6 lg:mb-14 tracking-wide">
         Добро пожаловать в наш блог
       </h2>
       <h5 class="text-lg">Search for your subject</h5>
-      <Navbar />
+      <Navbar/>
     </div>
   </div>
 </template>
 
 <script setup>
+import Navbar from '@/components/Navbar.vue';
+import Head from '@/components/Head.vue';
+
 import { ref, computed } from 'vue'
 
 // Данные для постов
