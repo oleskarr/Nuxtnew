@@ -70,6 +70,7 @@
   </button>
 </template>
 
+
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 
@@ -98,7 +99,7 @@ const loadMorePosts = () => {
 // Изменение ширины панели
 const togglePanelWidth = () => {
   isExpanded.value = !isExpanded.value;
-  panelWidth.value = isExpanded.value ? 80 : 30;
+  panelWidth.value = isExpanded.value ? 85 : 30;
 
   if (isExpanded.value) {
     loadMorePosts();
@@ -126,16 +127,30 @@ const imageStyle = {
 
 // Генерация случайных стилей для постов
 const randomPostStyle = () => {
-  const randomHeight = Math.floor(Math.random() * (350 - 250)) + 250;
-  const randomWidth = Math.floor(Math.random() * (350 - 200)) + 200;
+  if (isExpanded.value) {
+    const panelWidthPixels = (panelWidth.value / 100) * window.innerWidth;
+    const screenHeight = window.innerHeight;
 
-  return {
-    height: `${randomHeight}px`,
-    width: `${randomWidth}px`,
-    minHeight: '350px',
-    maxHeight: '500px',
-  };
+    // Ширина от 1/4 до 1/2 ширины панели
+    const randomWidth = Math.random() * (panelWidthPixels / 2 - panelWidthPixels / 4) + panelWidthPixels / 4;
+    const randomHeight = Math.random() * (screenHeight / 1.5 - screenHeight / 3) + screenHeight / 3;
+
+    return {
+      width: `${randomWidth}px`,
+      height: `${randomHeight}px`,
+      transition: 'all 0.3s ease-in-out',
+    };
+  } else {
+    const screenHeight = window.innerHeight;
+    return {
+      width: '100%', // Ширина поста остаётся фиксированной
+      height: `${screenHeight / 2}px`, // Высота поста равна 1/3 высоты экрана
+    };
+  }
 };
+
+
+
 </script>
 
 
