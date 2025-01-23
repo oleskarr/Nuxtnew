@@ -1,7 +1,59 @@
 <template>
-   <Navbar />
-Main
+  <div class=" h-full flex flex-col gap-6 items-center justify-center">
+    <h1 class="font-bold text-6xl ">Добро пожаловать!</h1>
+  <h3 class="text-gray-500">Вот пожалуйста вам навигация</h3>
+
+  <input type="text" id="search-navbar" v-model="search.searchQuery" @keyup.enter="goToSearch"
+            @focus="goToSearch"
+            class="block w-[50%] h-[3%] p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search...">
+        
+      <button data-collapse-toggle="navbar-search" type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-search" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
+
+   <ul class="flex  p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          
+          <li>
+            <NuxtLink
+              to="/portfolio"
+              class="block p-4 border text-5xl rounded-full hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  border-gray-700"
+              :class="{ 'text-blue-700': $route.path === '/portfolio' }"
+              >Портфолио</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              to="/contacts"
+              class="block p-4 border text-5xl rounded-full hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  border-gray-700"
+              :class="{ 'text-blue-700': $route.path === '/contacts' }"
+              >Контакты</NuxtLink
+            >
+          </li>
+        </ul>
+  </div>
 </template>
+<script setup>
+const search = useSearchStore()
+
+const inputSearch = ref(search.searchQuery)
+
+const router = useRouter()
+watch(() => search.searchQuery, (newQuery) => {
+  if (newQuery) router.push('/search')
+});
+
+const goToSearch = () => router.push('/search')
+const route = useRoute()
+// Функция для проверки активной ссылки по первой части пути
+const isActive = (path) => route.path.split('/')[1] === path
+</script>
 
 
 

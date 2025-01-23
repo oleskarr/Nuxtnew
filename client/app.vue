@@ -4,7 +4,7 @@
     <LeftPanel :panelWidth="panelWidth" @togglePanelWidth="togglePanelWidth" />
 
     <!-- Правая панель с динамическим контентом -->
-    <div class="content flex-1 ">
+    <div class="content flex-1 " v-if="index.aside">
      
       <NuxtPage />
       
@@ -18,7 +18,7 @@
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
         <path
-          :d="panelWidth === 80 ? 'M9 5l7 7-7 7' : 'M15 19l-7-7 7-7'"
+          :d="panelWidth === 90 ? 'M9 5l7 7-7 7' : 'M15 19l-7-7 7-7'"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -32,15 +32,20 @@
 import { ref, onMounted } from 'vue';
 import LeftPanel from '@/components/LeftPanel.vue';
 import Navbar from '@/components/Navbar.vue';
+import { useIndexStore } from "@/stores/index";
+
+const index = useIndexStore()
 
 const base_url = "https://d19d642231aa.vps.myjino.ru";
 const posts = ref([]);
 const panelWidth = ref(30);
+const visibleNuxtPage = ref(true)
 
 
 // Функция для изменения ширины панели
 const togglePanelWidth = () => {
   panelWidth.value = panelWidth.value === 30 ? 80 : 30;
+  
 };
 
 onMounted(async () => {

@@ -4,11 +4,35 @@
           Loading ...
       </div>
       <div class="ns_post" v-else>
-          <div class="h-80 rounded-2xl my-4 bg-fixed bg-[length:100%_600px]" :style="'background-image: url(' + base_url + post.img.url + ')'"></div>
+          <div class="h-80 rounded-2xl my-4 bg-fixed bg-[length:100%_600px]" :style="'background-image: url(' + base_url + post.image.url + ')'"></div>
           <h1 class="relative text-4xl">{{ post.title }} <Share /></h1>
           <p class="opacity-40">{{ formatDate(post.publishedAt.substring(0, 10)) }} • {{ post.views }} просмотров</p>
           <div v-html="mark"></div>
       </div>
+      <div class="flex items-center">
+                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        
+                    </div>
+                
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
+                            <strong>{{ post.title }}</strong>
+                        </span>
+                    </div>
+                </li>
+            
+        
+      
   </main>
 </template>
 
