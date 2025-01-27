@@ -1,40 +1,87 @@
 <template>
-  <main class="w-full lg:px-40">
-      <div class="ns_post" v-if="status === 'pending'">
-          Loading ...
-      </div>
-      <div class="ns_post" v-else>
-          <div class="h-80 rounded-2xl my-4 bg-fixed bg-[length:100%_600px]" :style="'background-image: url(' + base_url + post.image.url + ')'"></div>
-          <h1 class="relative text-4xl">{{ post.title }} <Share /></h1>
-          <p class="opacity-40">{{ formatDate(post.publishedAt.substring(0, 10)) }} • {{ post.views }} просмотров</p>
-          <div v-html="mark"></div>
-      </div>
-      <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 9 4-4-4-4" />
-                        </svg>
-                        
-                    </div>
-                
-                <li aria-current="page">
-                    <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-                            <strong>{{ post.title }}</strong>
-                        </span>
-                    </div>
-                </li>
-            
-        
-      
+    <Navbar />
+    <main class="w-full px-4 lg:px-40">
+    <!-- Загрузка -->
+    <div class="ns_post text-center text-gray-500" v-if="status === 'pending'">
+      Loading ...
+    </div>
+
+    <!-- Основной контент -->
+    <div class="ns_post overflow-y-auto" v-else >
+      <!-- Изображение поста -->
+      <div
+        class="h-60 sm:h-80 lg:h-96 rounded-2xl my-4 bg-cover bg-center transition-transform duration-500 hover:scale-105"
+        :style="'background-image: url(' + base_url + post.image.url + ')'"
+      ></div>
+
+      <!-- Заголовок -->
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 flex items-center"
+      >
+        {{ post.title }}
+        <Share class="ml-4" />
+      </h1>
+
+      <!-- Метаданные -->
+      <p
+        class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 opacity-70 mb-4"
+      >
+        {{ formatDate(post.publishedAt.substring(0, 10)) }} • {{ post.views }} просмотров
+      </p>
+
+      <!-- Текст поста -->
+      <p
+        class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed"
+      >
+        {{ post.body }}
+      </p>
+    </div>
+
+    <!-- Навигация -->
+    <div class="flex items-center mt-8 space-x-2">
+      <svg
+        class="rtl:rotate-180 w-4 h-4 text-gray-400"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 9 4-4-4-4"
+        />
+      </svg>
+      <li aria-current="page" class="list-none">
+        <div class="flex items-center text-gray-600">
+          <svg
+            class="rtl:rotate-180 w-4 h-4 text-gray-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 9 4-4-4-4"
+            />
+          </svg>
+          <span
+            class="ml-2 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-500 dark:text-gray-400"
+          >
+            <strong>{{ post.title }}</strong>
+          </span>
+        </div>
+      </li>
+    </div>
   </main>
-</template>
+  </template>
+  
 
 <script setup >
 import { useRoute } from 'vue-router';
