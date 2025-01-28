@@ -30,11 +30,11 @@
       </p>
 
       <!-- Текст поста -->
-      <p
-        class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed"
-      >
-        {{ post.body }}
-      </p>
+      <div 
+        class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed" 
+      v-html="post.body ? markdown.render(post.body) : ''">
+
+    </div>
     </div>
 
     <!-- Навигация -->
