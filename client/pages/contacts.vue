@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-r from-fuchsia-500 to-fuchsia-900 h-screen relative overflow-y-auto">
+  <div class="bg-gradient-to-r from-fuchsia-500 to-fuchsia-900 h-screen relative ">
     <!-- Навигация -->
     <Navbar />
 

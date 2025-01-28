@@ -1,11 +1,11 @@
 <template>
     <Navbar />
-<div class=" h-full	 overflow-y-auto ">
+<div class=" h-full	">
    
     
       <h2 class="text-center text-base/7 font-semibold text-indigo-600">Моё портфолио</h2>
       <p class="mx-auto  mt-2 max-w-lg text-balance text-center text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl">Всё самое сокровенное здесь</p>
-      <div class="mt-10 h-full	 overflow-y-auto no-scrollbar  grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+      <div class="mt-10 h-full	   grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
         <div class="relative lg:row-span-2">
           <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
           <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">

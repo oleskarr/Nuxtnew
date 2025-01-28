@@ -1,6 +1,6 @@
 <template>
   <div class="h-full flex flex-col gap-6 items-center justify-center animate-pulse">
-    <h1 class="font-bold text-6xl text-blue-500 hover:text-blue-700 transition duration-300">Добро пожаловать!</h1>
+    <h1 class="font-bold text-6xl text-fuchsia-500 hover:text-fuchsia-800 transition duration-300">Добро пожаловать!</h1>
     <h3 class="text-gray-500 hover:text-gray-700 transition duration-300">В мой проект</h3>
 
     <input type="text" id="search-navbar" v-model="search.searchQuery" @keyup.enter="goToSearch"

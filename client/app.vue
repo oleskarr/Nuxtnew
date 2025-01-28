@@ -4,7 +4,7 @@
     <LeftPanel :panelWidth="panelWidth" @togglePanelWidth="togglePanelWidth" />
 
     <!-- Правая панель с динамическим контентом -->
-    <div class="content flex-1 " v-if="index.aside">
+    <div class="content flex-1 overflow-y-scroll scrol" v-if="index.aside">
      
       <NuxtPage />
       
